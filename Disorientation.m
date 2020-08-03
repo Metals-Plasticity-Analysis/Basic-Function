@@ -1,5 +1,5 @@
 function [misorient, disorient,axang] = Disorientation(euler1, euler2)
-%DISORIENTATION Compute disorientation/misorientation between euler angles
+%DISORIENTATION Compute disorientation between euler angles
 
 % Inputs:
 % euler1: [phi1 PHI phi2] (deg)
@@ -105,14 +105,14 @@ R2 = eu2om(euler2*pi/180);  % rotation matrix of euler2
 
 for ii=1:length(R)
     for jj=1:length(R)
-        Rdiff = R{jj}*R2/(R{ii}*R1);
+        Rdiff = R{jj}*R2/(R{ii}*R1);    % Forward slash-inverse
         axang = rotm2axang(Rdiff);
         disorient_temp = axang(4)*180/pi;
         if disorient_temp < disorient
             disorient = disorient_temp;     % update if lower than previous value
         end
-        
-        Rdiff = R{ii}*R1/(R{jj}*R2);
+         
+        Rdiff = R{ii}*R1/(R{jj}*R2);     % Forward slash-inverse
         axang = rotm2axang(Rdiff);
         disorient_temp = axang(4)*180/pi;
         if disorient_temp < disorient
