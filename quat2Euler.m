@@ -1,5 +1,9 @@
 function q = quat2Euler(quat)
 
+% This function will convert the quaternion to the Euler angles.
+% Input = quats = [q0 q1 q2 q3];
+% Output  = Euler angles in degree;
+
     epsilon_ijk =[];
     q0 = quat(1);
     q1 = quat(2);

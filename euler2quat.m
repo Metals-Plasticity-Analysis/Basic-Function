@@ -1,11 +1,17 @@
 function q = euler2quat(eu)
     
+    % This function should convert the euler angle to quaternions.
+    % Input  = Euler angles in Degree.
+    % Output = array of quaternions.
+    
+    
+    
     global epsijk
     epsijk = -1;
 
-    aphi1 = eu(1);
-    aPhi = eu(2);
-    aphi2 = eu(3);
+    aphi1 = eu(1)*(180/pi);
+    aPhi = eu(2)*(180/pi);
+    aphi2 = eu(3)*(180/pi);
 
     sigma = 0.5*(aphi1+aphi2);
     delta = 0.5*(aphi1-aphi2);
