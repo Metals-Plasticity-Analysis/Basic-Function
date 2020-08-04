@@ -1,4 +1,4 @@
-%This code is for calculating average Taylor factor
+%This code is for calculating average Taylor factor using MTEX
 clc;
 clear;
 
