@@ -26,4 +26,13 @@ plot(odf,'phi2',[45]*degree,'contourf')
 pf(pf.intensities<0) = 0;
 odf = calcODF(pf,'silent', 'resolution',5*degree);
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% ODF calculation from VPSC output %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+texfile1= 'TEX_PH1.OUT';
+CS = crystalSymmetry('m-3m');
+SS = specimenSymmetry('mmm');
+data= loadOrientation_generic(texfile1,'CS',CS,'SS',SS,'ColumnNames',{'Euler1' 'Euler2' 'Euler3'}, 'Bunge');
+odf = calcDensity(data);
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%% 
