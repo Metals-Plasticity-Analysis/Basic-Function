@@ -1,5 +1,19 @@
 % A detailed information is available https://mtex-toolbox.github.io/OrientationStandard.html
 % some of the standard orientations that are build into MTEX. The full list of predefined orientations consists of
+
+%% Random Texture generation in MTEX
+
+cs = crystalSymmetry('cubic'); ss = specimenSymmetry('orthorhombic');
+odf = uniformODF(cs,ss);
+ori = discreteSample(odf,5000);
+euler_angles = [ori.phi1,ori.Phi,ori.phi2];
+odf = calcDensity(ori);
+plot(odf,'phi2',[0 45 65]* degree,'contour','antipodal','linewidth',2,'colorbar');
+setColorRange('equal');  
+mtexColorbar ('FontSize',25,'Fontweight','bold')
+
+
+
 % 
 % Cube, CubeND22, CubeND45, CubeRD
 % Goss, invGoss
